@@ -1,0 +1,7 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>{{heading}}</h1>
+  <p>{{ingress}}</p>
+  <p>Du har besøk denne siden {{num_visits}} gang{{num_visits|pluralize}}</p>
+{% endblock %}
