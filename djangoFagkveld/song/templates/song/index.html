@@ -1,0 +1,14 @@
+<div>
+    <h1>Sanger:</h1>
+    <div>
+        <ul>
+        {% for song in songs %}
+            <li>
+                <a href="{% url 'song' song.id %}">
+                    {{song.title}}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>       
+    </div>
+</div>

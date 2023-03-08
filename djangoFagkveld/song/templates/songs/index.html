@@ -1,8 +1,0 @@
-<div>
-    <h1>Her er alle sangene i databasen</h1>
-    {% for song in songs %}
-        <h2>{{song.title|title}}</h2> 
-        <p>{{song.release_data|date}}</p>
-        <p>{{song.song_text|linebreaks}}</p>
-    {% endfor %}
-</div>

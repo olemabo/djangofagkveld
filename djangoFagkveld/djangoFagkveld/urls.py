@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from song.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('song.urls')),
+    # path('', include('song.urls')),
+    path('', include('songs.urls')),
+    # path('', index),
 ]

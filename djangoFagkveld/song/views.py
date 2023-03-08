@@ -10,4 +10,14 @@ def index(request):
         "songs": songs,
     }
 
-    return render(request, 'songs/index.html', context)
+    return render(request, 'song/index.html', context)
+
+
+def song(request, song_id):
+    song = Song.objects.get(id=song_id)
+
+    context = {
+        "song": song
+    }
+
+    return render(request, 'song/song.html', context)
