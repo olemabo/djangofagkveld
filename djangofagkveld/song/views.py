@@ -7,7 +7,7 @@ def index(request):
     songs = Song.objects.all()
 
     context = {
-        'title': 'Sanger:',
+        'title': 'Sangers:',
         'songs': songs,
     }
 
