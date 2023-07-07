@@ -15,9 +15,9 @@
           {% block sidebar %}
           <div class="header-container">
             <ul class="sidebar-nav">
-              <li><a href="{% url 'oppgaver' %}">Oppgaver</a></li>
-              <li><a href="{% url 'results' %}">Resultater</a></li>
-              <li><a href="{% url 'lag' %}">Lag</a></li>
+              <li{% if 'oppgaver' in request.path %} class="active"{% endif %}><a href="{% url 'oppgaver' %}">Oppgaver</a></li>
+              <li{% if 'results' in request.path  %} class="active"{% endif %}><a href="{% url 'results' %}">Resultater</a></li>
+              <li{% if 'lag' in request.path  %} class="active"{% endif %}><a href="{% url 'lag' %}">Lag</a></li>
             </ul>
           </div>
           {% endblock %}
@@ -41,6 +41,9 @@
     max-width: 1000px;
     margin: auto;
   }
+  .sidebar-nav .active a {
+    font-weight: 600;
+  }
   .sidebar-nav li a {
     display: inline-block;
     margin-right: 20px;
@@ -48,7 +51,6 @@
     color: #4B4D55;
     text-decoration: none;
     border-bottom: 1px solid transparent;
-    
   }
   .sidebar-nav li a:hover {
     cursor: mouse;
@@ -61,6 +63,7 @@
     max-width: 1000px;
     display: flex;
     margin: auto;
+    padding: 20px;
   }
   body {
     margin: 0;
