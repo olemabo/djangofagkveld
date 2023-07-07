@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div>
+    <h1>{{task.name}}</h1>
+    <h2>Beskrivelse</h2>
+    <p>{{task.description}}</p>
+    <h2>Kamper</h2>
+    <p>{{task.matches | linebreaks }}</p>
+    <h2>Poeng</h2>
+    <p>{{task.points | linebreaks }}</p>
+</div>
+{% endblock %}

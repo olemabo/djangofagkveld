@@ -1,0 +1,41 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div style="width: 100%">
+    <h1>Resultater</h1>
+    <ul class="results">{% for part in part_list %}
+        <li style="width: {{ part.2 }}%">
+            <div>
+            <span class={{ forloop.counter }}>{{ part.0 }}</span>
+            <span class="last">{{ part.1 }} poeng</span>
+        </div>
+        </li>
+        {% endfor %}
+    </ul> 
+</div>
+<style>
+    .results li {
+        display: block;
+        background-color: #ffebc6;
+        margin: 12px 0;
+        max-width: 750px;
+        min-width: 140px;
+        padding: 8px 8px;
+        border-radius: 8px;
+    }
+    .results {
+        padding: 0;
+    }
+
+    .results li div {
+        padding: 0 8px;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+    }
+</style>
+{% endblock %}
+
+
+

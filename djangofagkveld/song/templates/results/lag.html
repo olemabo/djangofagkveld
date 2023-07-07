@@ -1,0 +1,50 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div>
+    <h1>Lag</h1>
+    <form action='/lag' method='GET'>
+        <label for="number_of_teams">Antall personer per lag: </label>
+        <input id="number_of_teams" type="number" name="number_of_teams" value="{{ number_of_teams }}">
+        <button type='submit'>Generer lag</button>
+    </form>
+    <div class="team-container">
+    {% for lag in lag_list %}
+    <div class="box"><div class="name">{{lag.1}}: </div>
+    <div class="team-box">
+        {% for lag_i in lag.0 %}
+            <div>{{lag_i}}</div>
+        {% endfor %}
+    </div></div>
+    {% empty %}
+
+    {% endfor %}
+</div>
+</div>
+<style>
+    .team-box {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 12px 12px 12px 0;
+        gap: 10px;
+        background-color: #ffebc6;
+        border-radius: 8px;
+        width: fit-content;
+        padding: 8px;
+    }
+    input {
+        width: 30px;
+    }
+    .team-container {
+        margin-top: 20px;
+    }
+    .box {
+        display: flex;
+        align-items: center;
+    }
+    .box .name {
+        margin-right: 10px;
+    }
+</style>
+{% endblock %}

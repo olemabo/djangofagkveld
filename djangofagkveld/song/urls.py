@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import index, song
+from .views import index, oppgave, oppgaver, lag
 
 urlpatterns = [
-    path('song/', index, name='songs'),
-    path('song/<int:song_id>', song, name='song'),
+    path('results/', index, name='results'),
+    path('oppgaver/', oppgaver, name='oppgaver'),
+    path('lag/', lag, name='lag'),
+    path('oppgaver/<int:oppgave_id>', oppgave, name='oppgave'),
     path('', index),
 ]

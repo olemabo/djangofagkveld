@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div>
+    <h1>Oppgaver</h1>
+    <ul>{% for oppgave in oppgaver %}
+        <li>
+            <a href="{% url 'oppgave' oppgave.id %}" >{{ oppgave.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div> 
+{% endblock %}
