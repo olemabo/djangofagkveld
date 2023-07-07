@@ -41,15 +41,20 @@ def index(request):
         klinkbong = checkNoneValue(participant.klinkbong)
         bonuspoeng = checkNoneValue(participant.bonuspoeng)
         kaptein = checkNoneValue(participant.kaptein)
-        points = bordtennis + fifa + foccia + gulbolle + klinkbong + bonuspoeng + kaptein
+        extra = 0
+        for i in participant.points:
+            extra += int(i)
+
+        points = bordtennis + fifa + foccia + gulbolle + klinkbong + bonuspoeng + kaptein + extra
         max_points = max(max_points, points)
         part_list.append([participant.name, points, 0])
     
     part_list.sort(key=lambda x: x[1])
     part_list.reverse()
 
-    for i in part_list:
-        i[2] = round(i[1] / max_points * 100, 0)
+    if (max_points > 0):
+        for i in part_list:
+            i[2] = round(i[1] / max_points * 100, 0)
 
     context = {
         'part_list': part_list,
